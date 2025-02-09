@@ -5,16 +5,27 @@
 <div id="categories">
 
   <div>
-    <select onChange="if(this.selectedIndex!==0) self.location=this.options[this.selectedIndex].value">
-      <option value="">Select a category</option>
-      <% @categories.each do |category| %>
-      <option value="<%= category_path(category) %>"><%= category.CategoryName %></option>
-      <% end %>
+    <label>
+      <select onChange="if(this.selectedIndex!==0) self.location=this.options[this.selectedIndex].value">
+        <option value="">Select a category</option>
+        <% @categories.each do |category| %>
+        <option value="<%= category_path(category) %>"><%= category.CategoryName %></option>
+        <% end %>
 
-    </select>
+      </select>
+    </label>
 
 
-    </div>
+
+
+  </div>
+
+
+
+
+
+
+
 
 
 </div>

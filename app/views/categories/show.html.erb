@@ -1,12 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
+<%= render @category %>
 
+<h2>Associated Stops</h2>
+  <% if @category.stops.empty? %>
+  <p> No stops available for this category.</p>
+  <% else %>
+  <ul>
+    <% @category.stops.each do |category| %>
+      <li><%= category.Stop_Name %></li>
+    <% end %>
+  </ul>
+  <% end %>
 
-<% if @category.present? %>
-  <h1><%= @category.CategoryName %></h1>
-  <%= render @category %>
-  <%= render @category.stops %>
-<% end %>
 
 <div>
 

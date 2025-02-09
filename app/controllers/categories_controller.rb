@@ -4,23 +4,22 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
+    @stops = @category&.stop
   end
 
   # GET /categories/1 or /categories/1.json
   def show
-    @category = Category.find_by(id: params[:category_id])
-
 
   end
 
   # GET /categories/new
   def new
-    @category ||= Category.new
+    @category = Category.new
   end
 
   # GET /categories/1/edit
   def edit
-    @category = Category.find_by(id: params[:category_id])
+    @category = Category.find_by(params[:category_id])
   end
 
   # POST /categories or /categories.json
