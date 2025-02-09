@@ -1,0 +1,59 @@
+<%= form_with(model: stop) do |form| %>
+  <% if stop.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(stop.errors.count, "error") %> prohibited this stop from being saved:</h2>
+
+      <ul>
+        <% stop.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Stop_Name, style: "display: block" %>
+    <%= form.text_field :Stop_Name %>
+  </div>
+
+  <div>
+    <%= form.label :GPS_X, style: "display: block" %>
+    <%= form.text_field :GPS_X %>
+  </div>
+
+  <div>
+    <%= form.label :GPS_Y, style: "display: block" %>
+    <%= form.text_field :GPS_Y %>
+  </div>
+
+  <div>
+    <%= form.label :Front_Of_Card, style: "display: block" %>
+    <%= form.text_field :Front_Of_Card %>
+  </div>
+
+  <div>
+    <%= form.label :Back_Of_Card, style: "display: block" %>
+    <%= form.text_field :Back_Of_Card %>
+  </div>
+
+  <div>
+    <%= form.label :Hidden_Card, style: "display: block" %>
+    <%= form.text_field :Hidden_Card %>
+  </div>
+
+  <div>
+    <%= form.label :category_id, style: "display: dropdown" %>
+  </div>
+
+
+  <div>
+
+    <%= form.select :category_id, Category.order(:CategoryName).map { |category | [category.CategoryName, category.id] },
+                    { include_blank: true },
+                    { class: "category" }%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
