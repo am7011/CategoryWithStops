@@ -5,6 +5,8 @@ ruby "3.3.1"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.5", ">= 7.1.5.1"
 
+gem "bootstrap-sass", "~> 3.4.1" # Add this line
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -65,3 +67,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "cssbundling-rails", "~> 1.4"
+
+

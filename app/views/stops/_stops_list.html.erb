@@ -1,0 +1,9 @@
+<% if stops.any? %>
+  <ul>
+    <% stops.each do |stop| %>
+      <li><strong><%= stop.name %></strong> - <%= stop.location %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No stops available for this category.</p>
+<% end %>

@@ -1,35 +1,31 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="center jumbotron">
 <h1>Categories</h1>
 
 <div id="categories">
 
   <div>
     <label>
-      <select onChange="if(this.selectedIndex!==0) self.location=this.options[this.selectedIndex].value">
+      <select id="category-select {} ">
         <option value="">Select a category</option>
         <% @categories.each do |category| %>
-        <option value="<%= category_path(category) %>"><%= category.CategoryName %></option>
+          <option value="<%= category.id %>"><%= category.CategoryName %></option>
         <% end %>
-
       </select>
     </label>
+  </div>
+</div>
 
+  <div id="stops-section">
 
+  <p>Please select a category to view the stops.</p>
 
+    <!-- Stops related to the selected category will be displayed here -->
 
   </div>
 
 
 
-
-
-
-
-
+<%= link_to "New category", new_category_path, class:"btn btn-lg btn-primary" %>
 
 </div>
-
-<%= link_to "New category", new_category_path %>
-
-<!-- <div> -->

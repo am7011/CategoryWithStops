@@ -1,6 +1,8 @@
 class StopsController < ApplicationController
   before_action :set_stop, only: %i[ show edit update destroy ]
 
+
+
   # GET /stops or /stops.json
   def index
     @stops = Stop.all
@@ -18,6 +20,17 @@ class StopsController < ApplicationController
 
   # GET /stops/1/edit
   def edit
+  end
+
+  def fetch_stops
+    @category = Category.find_by(id: params[:category_id])
+    @stops = Stop.where(category_id: params[:category_id])
+
+    #render stops list on the bottom half of the home page
+    render partial: 'stops/stops_list', locals: {stops: @stops }
+    # respond_to do |format|
+    #   format.html {render partial: 'stops/stops_list', locals: {stops: @stops }}
+    # end
   end
 
   # POST /stops or /stops.json
